@@ -1,0 +1,51 @@
+#this was done in Jupyter Notebook
+
+import numpy as np 
+#creating function to carry out numpy functions on a list which will be 
+#transformed to a matrix using numpy
+def calculate(list) :
+    if (len(list))!= 9: #max limit is 9 entitiys in the list
+        raise ValueError ("list must be 9 numbers") #conditional to get over the issue of exceeding limit
+    ls= np.array(list) #change list to numpy array 
+    ls=ls.reshape((3,3)) #change array to 3x3 matrix
+    meancols= np.mean(ls,axis=0) #get mean of columns 
+    
+    meanrows= (np.mean(ls,axis=1)) #get mean of rows
+    
+    # everything is self explanatory from here
+    
+    var_cols= np.var(ls,axis=0)
+    var_rows= (np.var(ls,axis=1)) 
+
+    
+    standard_deviation_cols= ([np.std(ls,axis=0)]) 
+    standard_deviation_rows= ([np.std(ls,axis=1)]) 
+
+    
+    maxcols= (np.max(ls,axis=0)) 
+    maxrows= (np.max(ls,axis=1)) 
+
+    
+    mincols= (np.min(ls,axis=0)) 
+    minrows= (np.min(ls,axis=1)) 
+
+    
+    sumcols= (np.sum(ls,axis=0)) 
+    sumrows= (np.sum(ls,axis=1)) 
+
+    
+    
+    
+#returning all the values i found using numpy functions
+    return{
+  'mean': [meanrows, meancols, np.mean(ls)],
+  'variance': [var_rows, var_cols, np.var(ls)],
+  'standard deviation': [standard_deviation_rows, standard_deviation_cols, np.std(ls)],
+  'max': [maxrows, maxcols, np.max(ls)],
+  'min': [minrows, mincols, np.min(ls)],
+  'sum': [sumrows, sumcols, np.sum(ls)]
+}
+
+
+list=[0,1,2,3,4,5,6,7,8]
+calculate(list)
