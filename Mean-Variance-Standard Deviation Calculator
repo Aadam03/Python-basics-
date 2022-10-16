@@ -4,7 +4,7 @@ import numpy as np
 #creating function to carry out numpy functions on a list which will be 
 #transformed to a matrix using numpy
 def calculate(list) :
-    if (len(list))!= 9: #max limit is 9 entitiys in the list
+    if (len(list))!= 9: #max limit is 9 items in the list
         raise ValueError ("list must be 9 numbers") #conditional to get over the issue of exceeding limit
     ls= np.array(list) #change list to numpy array 
     ls=ls.reshape((3,3)) #change array to 3x3 matrix
@@ -12,7 +12,8 @@ def calculate(list) :
     
     meanrows= (np.mean(ls,axis=1)) #get mean of rows
     
-    # everything is self explanatory from here
+   
+    # Using the numpy operators to find what I want
     
     var_cols= np.var(ls,axis=0)
     var_rows= (np.var(ls,axis=1)) 
